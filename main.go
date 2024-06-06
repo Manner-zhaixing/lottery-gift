@@ -54,7 +54,7 @@ func main() {
 	//GIN自带logger和recover中间件
 	//[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached
 
-	gin.SetMode(gin.ReleaseMode) //GIN线上发布模式
+	// gin.SetMode(gin.ReleaseMode) //GIN线上发布模式
 	// gin.DefaultWriter = io.Discard //禁止GIN的输出
 	// 修改静态资源不需要重启GIN，刷新页面即可
 	router := gin.Default()
@@ -68,7 +68,6 @@ func main() {
 
 	router.GET("/", func(ctx *gin.Context) {
 		ctx.HTML(http.StatusOK, "lottery.html", nil)
-		//ctx.File("./views/lottery.html")
 	})
 	router.GET("/gifts", handler.GetAllGifts) //获取所有奖品信息--v1
 	router.GET("/lucky", handler.Lottery)     //点击抽奖按钮

@@ -36,7 +36,6 @@ func Lottery(ctx *gin.Context) {
 			}
 		}
 		if len(ids) == 0 {
-			// CloseChannel() //关闭channel
 			go CloseMQ()                               //关闭写mq的连接
 			ctx.String(http.StatusOK, strconv.Itoa(0)) //0表示所有奖品已抽完
 			return

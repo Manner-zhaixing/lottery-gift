@@ -10,7 +10,7 @@ type Order struct {
 	UserId int
 }
 
-// 写入一条订单记录
+// CreateOrder 写入一条订单记录
 func CreateOrder(userid, giftid int) int {
 	db := GetGiftDBConnection()
 	order := Order{GiftId: giftid, UserId: userid}
@@ -23,7 +23,7 @@ func CreateOrder(userid, giftid int) int {
 	}
 }
 
-// 清除全部订单记录
+// ClearOrders 清除全部订单记录
 func ClearOrders() error {
 	db := GetGiftDBConnection()
 	return db.Where("id>0").Delete(Order{}).Error

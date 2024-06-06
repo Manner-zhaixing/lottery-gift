@@ -41,12 +41,11 @@ func ConsumeOrder() {
 			if err := sonic.Unmarshal(message.Value, &order); err == nil {
 				util.LogRus.Debugf("message partition %d", message.Partition)
 				database.CreateOrder(order.UserId, order.GiftId) //写入mysql
-				// 将mysql中的库存减一----后加begin
+				// 将mysql中的库存减一
 				err := database.ReduceInventoryMysql(order.GiftId)
 				if err != nil {
 					util.LogRus.Errorf("reduce inventory mysql failed: %v", err)
 				}
-				//---end
 			} else {
 				util.LogRus.Errorf("order info is invalid json format: %s", string(message.Value))
 			}

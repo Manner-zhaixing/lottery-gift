@@ -14,7 +14,7 @@ import (
 	ormlog "gorm.io/gorm/logger"
 )
 
-// 建立数据库连接。代码讲解参见《双Token博客系统》
+// 建立数据库连接。
 
 var (
 	blog_mysql      *gorm.DB

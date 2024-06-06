@@ -37,7 +37,7 @@ func GetAllGiftsV1() []*Gift {
 	return gifts
 }
 
-// GetAllGiftsV2 千万级以上大表遍历方案。
+// GetAllGiftsV2 大表遍历方案。
 func GetAllGiftsV2(ch chan<- Gift) {
 	db := GetGiftDBConnection()
 	const PAGE_SIZE = 500
