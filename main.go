@@ -71,7 +71,7 @@ func main() {
 	})
 	router.GET("/gifts", handler.GetAllGifts) //获取所有奖品信息--v1
 	router.GET("/lucky", handler.Lottery)     //点击抽奖按钮
-
+	// 打印运行端口
 	fmt.Println("run:localhost:5678")
 	router.Run("localhost:5678")
 
