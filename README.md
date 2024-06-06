@@ -1,3 +1,5 @@
+## 介绍
+本项目技术栈：golang+mysql+redis+kafka
 ## 建表
 ```sql
 create table if not exists inventory(
